@@ -1,0 +1,18 @@
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\Restaurant Manager Windows Application.exe.config
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\Restaurant Manager Windows Application.exe
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\Restaurant Manager Windows Application.pdb
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.Design.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.Fonts.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant Manager Windows Application.csprojResolveAssemblyReference.cache
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Properties.Resources.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant Manager Windows Application.csproj.GenerateResource.Cache
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant Manager Windows Application.exe
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant Manager Windows Application.pdb
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.MainForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.ReservationsForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Employees.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Forms.MenuForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Forms.TablesForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Forms.Statistics.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Custom_User_Control.BarChartUserControl.resources

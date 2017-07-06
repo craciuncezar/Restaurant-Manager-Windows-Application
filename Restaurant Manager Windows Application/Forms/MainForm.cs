@@ -36,7 +36,7 @@ namespace Restaurant_Manager_Windows_Application
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            Employees ef = new Employees(this);
+            EmployeesForm ef = new EmployeesForm(this);
             ef.Show();
             this.Hide();
         }
@@ -57,8 +57,15 @@ namespace Restaurant_Manager_Windows_Application
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
-            Statistics st = new Statistics(this);
+            StatisticsForm st = new StatisticsForm(this);
             st.Show();
+            this.Hide();
+        }
+
+        private void metroTile6_Click(object sender, EventArgs e)
+        {
+            ReceiptForm rf = new ReceiptForm(this);
+            rf.Show();
             this.Hide();
         }
     }

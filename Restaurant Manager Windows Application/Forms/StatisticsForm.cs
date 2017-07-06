@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application.Forms
 {
-    public partial class Statistics : MetroForm
+    public partial class StatisticsForm : MetroForm
     {
         private Restaurant restaurant = MainForm.Restaurant;
         private new MainForm Owner;
-        public Statistics(MainForm owner)
+        public StatisticsForm(MainForm owner)
         {
             Owner = owner;
             InitializeComponent();

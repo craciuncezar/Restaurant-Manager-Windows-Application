@@ -9,10 +9,20 @@ namespace Restaurant_Manager_Windows_Application.Forms
 {
     public partial class TablesForm : MetroForm
     {
-        private new MainForm Owner;
+        private new MetroForm Owner=null;
         private Restaurant restaurant = MainForm.Restaurant;
-
+        public TablesForm()
+        {
+            InitializeComponent();
+            tableNumberTextBox.Text = (restaurant.Tables.Count + 1).ToString();
+        }
         public TablesForm(MainForm owner)
+        {
+            Owner = owner;
+            InitializeComponent();
+            tableNumberTextBox.Text = (restaurant.Tables.Count + 1).ToString();
+        }
+        public TablesForm(ReservationsForm owner)
         {
             Owner = owner;
             InitializeComponent();
@@ -21,7 +31,8 @@ namespace Restaurant_Manager_Windows_Application.Forms
 
         private void TablesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Owner.Show();
+            if(Owner!=null)
+                Owner.Show();
         }
 
         #region Add button event with validation

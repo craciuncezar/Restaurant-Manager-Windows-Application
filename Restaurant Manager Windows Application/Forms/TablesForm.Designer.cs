@@ -63,6 +63,7 @@
             // 
             // metroButton1
             // 
+            this.metroButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.metroButton1.Location = new System.Drawing.Point(500, 219);
             this.metroButton1.Name = "metroButton1";

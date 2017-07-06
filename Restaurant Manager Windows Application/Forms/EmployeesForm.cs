@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application
 {
-    public partial class Employees : MetroForm
+    public partial class EmployeesForm : MetroForm
     {
 
         private Restaurant restaurant = MainForm.Restaurant;
         private new MainForm Owner;
 
-        public Employees(MainForm owner)
+        public EmployeesForm(MainForm owner)
         {
             Owner = owner;
             InitializeComponent();

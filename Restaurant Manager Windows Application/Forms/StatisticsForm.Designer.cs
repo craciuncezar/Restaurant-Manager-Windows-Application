@@ -1,6 +1,6 @@
 ﻿namespace Restaurant_Manager_Windows_Application.Forms
 {
-    partial class Statistics
+    partial class StatisticsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,14 +38,14 @@
             this.barChartUserControl1.Size = new System.Drawing.Size(738, 369);
             this.barChartUserControl1.TabIndex = 0;
             // 
-            // Statistics
+            // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 539);
             this.Controls.Add(this.barChartUserControl1);
             this.MaximizeBox = false;
-            this.Name = "Statistics";
+            this.Name = "StatisticsForm";
             this.Resizable = false;
             this.Text = "Statistics";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Statistics_FormClosed);

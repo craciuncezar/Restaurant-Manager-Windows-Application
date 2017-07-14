@@ -11,6 +11,10 @@ namespace Entities
     {
 
         #region Properties
+
+        public long? Id
+        { get; set; }
+
         public int Number
         {get;set;}
 
@@ -21,8 +25,9 @@ namespace Entities
         #region Constructors
         public Tables()
         {}
-        public Tables(int n, int m)
+        public Tables(long id,int n, int m)
         {
+            this.Id = id;
             this.MaxSeats = m;
             this.Number = n;
         }

@@ -3,6 +3,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application.Forms
@@ -64,7 +65,7 @@ namespace Restaurant_Manager_Windows_Application.Forms
 
             if (valid)
             {
-                restaurant.Tables.Add(table);
+                addTable(table);
                 tableNumberTextBox.Text = (int.Parse(tableNumberTextBox.Text)+1).ToString();
                 bindDataToGrid();
             }
@@ -88,5 +89,31 @@ namespace Restaurant_Manager_Windows_Application.Forms
             metroGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        void addTable(Tables table)
+        {
+            var queryString = "insert into Tables(Number, MaxSeats)" +
+                              " values(@Number,@MaxSeats);  " +
+                              "SELECT last_insert_rowid()";
+
+            using (SQLiteConnection connection = new SQLiteConnection("Data Source=database.db"))
+            {
+                connection.Open();
+
+                //1. Add the new participant to the database
+                var command = new SQLiteCommand(queryString, connection);
+                var numberParameter = new SQLiteParameter("@Number");
+                numberParameter.Value = table.Number;
+                var maxSeatsParameter = new SQLiteParameter("@MaxSeats");
+                maxSeatsParameter.Value = table.MaxSeats;
+
+                command.Parameters.Add(numberParameter);
+                command.Parameters.Add(maxSeatsParameter);
+
+                table.Id = (long)command.ExecuteScalar();
+
+                //2. Add the new participants to the local collection
+                restaurant.Tables.Add(table);
+            }
+        }
     }
 }

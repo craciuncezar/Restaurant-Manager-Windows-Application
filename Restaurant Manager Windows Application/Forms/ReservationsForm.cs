@@ -4,22 +4,24 @@ using MetroFramework.Forms;
 using Restaurant_Manager_Windows_Application.Forms;
 using System;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application
 {
     public partial class ReservationsForm : MetroForm
     {
+
         private new MainForm Owner;
         private Restaurant restaurant = MainForm.Restaurant;
+
         public ReservationsForm(MainForm owner)
         {
             Owner = owner;
             InitializeComponent();
 
             metroDateTime.MinDate = DateTime.Now;
-
-            displayFreeTables();
+            checkFreeTables();
 
             if (restaurant.Tables.Count == 0)
                 panel2.Visible = false;
@@ -130,9 +132,10 @@ namespace Restaurant_Manager_Windows_Application
 
             if (valid)
             {
-                restaurant.Reservations.Add(reservation);
+                addReservation(reservation);
                 bindToDataGrid();
                 clearValuesForm();
+                checkFreeTables();
                 MetroMessageBox.Show(this, "\nReservation was created succesfully!", "Reservation Created", MessageBoxButtons.OK, MessageBoxIcon.None);
 
             }
@@ -149,6 +152,7 @@ namespace Restaurant_Manager_Windows_Application
             metroGrid1.DataSource = list;
             metroGrid1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            metroGrid1.Refresh();
         }
 
         private void ReservationsForm_Load(object sender, EventArgs e)
@@ -164,22 +168,29 @@ namespace Restaurant_Manager_Windows_Application
             if (restaurant.Tables.Count != 0)
             {
                 panel2.Visible = true;
-                displayFreeTables();
+                checkFreeTables();
             }
         }
 
-        public void displayFreeTables()
+        public void checkFreeTables()
         {
             tablesComboBox.Items.Clear();
             foreach (Tables t in restaurant.Tables)
             {
-                foreach (Reservation r in restaurant.Reservations)
-                {
-                    if (!(r.Date.Equals(metroDateTime.Value.ToString("D")) && r.TableNo == t.Number))
-                        tablesComboBox.Items.Add(t.Number);
-                }
                 if (restaurant.Reservations.Count == 0)
                     tablesComboBox.Items.Add(t.Number);
+                else
+                {
+                    bool isvalid = true;
+                    foreach (Reservation r in restaurant.Reservations)
+                    {
+                        if (r.Date.Equals(metroDateTime.Value.ToString("D")) && r.TableNo == t.Number)
+                            isvalid = false;
+                    }
+
+                    if (isvalid)
+                        tablesComboBox.Items.Add(t.Number);
+                }
             }
 
             if (tablesComboBox.Items.Count == 0)
@@ -211,34 +222,74 @@ namespace Restaurant_Manager_Windows_Application
 
         private void metroDateTime_ValueChanged(object sender, EventArgs e)
         {
-            displayFreeTables();
+            checkFreeTables();
 
         }
 
         private void tablesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Tables t in restaurant.Tables)
-            {
-                if (tablesComboBox.Text.ToString().Equals(t.Number.ToString()) && int.Parse(guestsTextBox.Text) > t.MaxSeats)
-                {
-                    warningText.Text = "Table has " + t.MaxSeats + " available seats!";
-                }
-                else
-                    warningText.Text = "";
-            }
+            checkAvailableSeats();
         }
 
         private void guestsTextBox_Validating(object sender, CancelEventArgs e)
         {
-            foreach (Tables t in restaurant.Tables)
+            checkAvailableSeats();
+        }
+
+        private void addReservation(Reservation reservation)
+        {
+            var queryString = "insert into Reservations(Name, Date, NoPers, TableNo, Email, PhoneNumber)" +
+                              " values(@name,@date,@noPers,@tableNo,@email,@phoneNumber);  " +
+                              "SELECT last_insert_rowid()";
+
+            SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+            connection.Open();
+
+            var command = new SQLiteCommand(queryString, connection);
+            var nameParameter = new SQLiteParameter("@name");
+            nameParameter.Value = reservation.Name;
+            var dateParameter = new SQLiteParameter("@date");
+            dateParameter.Value = reservation.Date;
+            var noPersParameter = new SQLiteParameter("@noPers");
+            noPersParameter.Value = reservation.NoPers;
+            var tableNoParameter = new SQLiteParameter("@tableNo");
+            tableNoParameter.Value = reservation.TableNo;
+            var emailParameter = new SQLiteParameter("@email");
+            emailParameter.Value = reservation.Email;
+            var phoneNumberParameter = new SQLiteParameter("@phoneNumber");
+            phoneNumberParameter.Value = reservation.PhoneNumber;
+
+            command.Parameters.Add(nameParameter);
+            command.Parameters.Add(dateParameter);
+            command.Parameters.Add(noPersParameter);
+            command.Parameters.Add(tableNoParameter);
+            command.Parameters.Add(emailParameter);
+            command.Parameters.Add(phoneNumberParameter);
+
+            reservation.Id = (long)command.ExecuteScalar();
+
+            restaurant.Reservations.Add(reservation);
+
+            connection.Close();
+
+        }
+
+
+        private void checkAvailableSeats()
+        {
+            if (!String.IsNullOrEmpty(guestsTextBox.Text))
             {
-                if (tablesComboBox.Text.ToString().Equals(t.Number.ToString()) && int.Parse(guestsTextBox.Text) > t.MaxSeats)
+                foreach (Tables t in restaurant.Tables)
                 {
-                    warningText.Text = "Table has " + t.MaxSeats + " available seats!";
+                    if (tablesComboBox.Text.ToString().Equals(t.Number.ToString()) && int.Parse(guestsTextBox.Text) > t.MaxSeats)
+                    {
+                        warningText.Text = "Table has " + t.MaxSeats + " available seats!";
+                    }
+                    else
+                        warningText.Text = "";
                 }
-                else
-                    warningText.Text = "";
             }
         }
+
     }
 }

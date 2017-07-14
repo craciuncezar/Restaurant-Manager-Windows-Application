@@ -11,6 +11,9 @@ namespace Entities
     {
 
         #region Properties
+        public long? Id
+        { get; set; }
+
         public string Name
         { get; set; }
 
@@ -35,8 +38,9 @@ namespace Entities
 
         #region Constructors
         public Reservation() { }
-        public Reservation(string resname, string datares, int nopers, int tableno, int phonenumber, string email)
+        public Reservation(long id,string resname, string datares, int nopers, int tableno, int phonenumber, string email)
         {
+            this.Id = id;
             this.Name = resname;
             this.Date = datares;
             this.NoPers = nopers;

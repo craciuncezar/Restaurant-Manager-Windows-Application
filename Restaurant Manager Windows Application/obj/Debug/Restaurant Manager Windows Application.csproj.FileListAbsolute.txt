@@ -14,3 +14,10 @@ D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager 
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Forms.ReceiptForm.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.EmployeesForm.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\obj\Debug\Restaurant_Manager_Windows_Application.Forms.StatisticsForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\System.Data.SQLite.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\System.Data.SQLite.xml
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.Design.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.dll
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Application\bin\Debug\MetroFramework.Fonts.dll

@@ -3,6 +3,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application.Forms
@@ -134,13 +135,48 @@ namespace Restaurant_Manager_Windows_Application.Forms
 
             if (valid)
             {
-                restaurant.Menu.Add(item);
+                addFoodItem(item);
                 bindToDataGrid();
             }
             else
             {
                 MetroMessageBox.Show(this, "\nData inserted is not valid, please check the warnings and try again!", "Invalid data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void addFoodItem(FoodItem fooditem)
+        {
+            var queryString = "insert into FoodItems(FoodName, Price, Grams, Description, Category)" +
+                              " values(@FoodName,@Price,@Grams,@Description,@Category);  " +
+                              "SELECT last_insert_rowid()";
+
+            SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+            connection.Open();
+
+            var command = new SQLiteCommand(queryString, connection);
+            var nameParameter = new SQLiteParameter("@FoodName");
+            nameParameter.Value = fooditem.FoodName;
+            var priceParameter = new SQLiteParameter("@Price");
+            priceParameter.Value = fooditem.Price;
+            var gramsParameter = new SQLiteParameter("@Grams");
+            gramsParameter.Value = fooditem.Grams;
+            var descriptionParameter = new SQLiteParameter("@Description");
+            descriptionParameter.Value = fooditem.Description;
+            var categoryParameter = new SQLiteParameter("@Category");
+            categoryParameter.Value = fooditem.Category;
+
+            command.Parameters.Add(nameParameter);
+            command.Parameters.Add(priceParameter);
+            command.Parameters.Add(gramsParameter);
+            command.Parameters.Add(descriptionParameter);
+            command.Parameters.Add(categoryParameter);
+
+            fooditem.Id = (long)command.ExecuteScalar();
+
+            restaurant.Menu.Add(fooditem);
+
+            connection.Close();
+
         }
     }
 }

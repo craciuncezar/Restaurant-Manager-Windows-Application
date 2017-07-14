@@ -3,6 +3,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application
@@ -114,7 +115,7 @@ namespace Restaurant_Manager_Windows_Application
 
             if(valid)
             {
-                restaurant.Employee.Add(newEmployee);
+                addEmployee(newEmployee);
                 bindToDataGrid();
             }
             else
@@ -148,5 +149,44 @@ namespace Restaurant_Manager_Windows_Application
             metroGrid2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             metroGrid2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+
+        private void addEmployee(Employee employee)
+        {
+            var queryString = "insert into Employees(FirstName, LastName, Wage, Position, Birthdate, Gender)" +
+                              " values(@FirstName,@LastName,@Wage,@Position,@Birthdate,@Gender);  " +
+                              "SELECT last_insert_rowid()";
+
+            SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+            connection.Open();
+
+            var command = new SQLiteCommand(queryString, connection);
+            var firstNameParameter = new SQLiteParameter("@FirstName");
+            firstNameParameter.Value = employee.FirstName;
+            var lastNameParameter = new SQLiteParameter("@LastName");
+            lastNameParameter.Value = employee.LastName;
+            var wageParameter = new SQLiteParameter("@Wage");
+            wageParameter.Value = employee.Wage;
+            var positionParameter = new SQLiteParameter("@Position");
+            positionParameter.Value = employee.Position;
+            var birthDateParameter = new SQLiteParameter("@Birthdate");
+            birthDateParameter.Value = employee.Birthdate;
+            var genderParameter = new SQLiteParameter("@Gender");
+            genderParameter.Value = employee.Gender;
+
+            command.Parameters.Add(firstNameParameter);
+            command.Parameters.Add(lastNameParameter);
+            command.Parameters.Add(wageParameter);
+            command.Parameters.Add(positionParameter);
+            command.Parameters.Add(birthDateParameter);
+            command.Parameters.Add(genderParameter);
+
+            employee.Id = (long)command.ExecuteScalar();
+
+            restaurant.Employee.Add(employee);
+
+            connection.Close();
+
+        }
+
     }
 }

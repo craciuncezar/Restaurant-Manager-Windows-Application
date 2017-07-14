@@ -11,6 +11,11 @@ namespace Entities
     {
 
         #region Properties
+
+        public long? Id
+        {
+            get;set;
+        }
         public string FoodName
         {
             get; set;
@@ -41,8 +46,9 @@ namespace Entities
         #region Constructors
 
         public FoodItem() { }
-        public FoodItem(string foodname, double price, int grams, string category, string description)
+        public FoodItem(long id,string foodname, double price, int grams, string category, string description)
         {
+            this.Id = id;
             this.FoodName = foodname;
             this.Price = price;
             this.Grams = grams;

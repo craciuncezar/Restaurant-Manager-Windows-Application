@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.warningText = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -50,9 +49,10 @@
             this.nameTextBox = new MetroFramework.Controls.MetroTextBox();
             this.tablesComboBox = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -62,8 +62,8 @@
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -87,6 +87,7 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.panel2);
             this.metroTabPage1.Controls.Add(this.panel1);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
@@ -100,21 +101,9 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.metroLabel2);
-            this.panel1.Controls.Add(this.metroLabel1);
-            this.panel1.Controls.Add(this.metroButton2);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(693, 441);
-            this.panel1.TabIndex = 5;
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.warningText);
             this.panel2.Controls.Add(this.metroLabel12);
             this.panel2.Controls.Add(this.phoneNumberTextBox);
@@ -129,9 +118,9 @@
             this.panel2.Controls.Add(this.nameTextBox);
             this.panel2.Controls.Add(this.tablesComboBox);
             this.panel2.Controls.Add(this.metroLabel9);
-            this.panel2.Location = new System.Drawing.Point(62, 17);
+            this.panel2.Location = new System.Drawing.Point(0, 17);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(585, 392);
+            this.panel2.Size = new System.Drawing.Size(696, 455);
             this.panel2.TabIndex = 31;
             // 
             // warningText
@@ -141,7 +130,7 @@
             this.warningText.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.warningText.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.warningText.ForeColor = System.Drawing.Color.Red;
-            this.warningText.Location = new System.Drawing.Point(148, 11);
+            this.warningText.Location = new System.Drawing.Point(243, 34);
             this.warningText.Name = "warningText";
             this.warningText.Size = new System.Drawing.Size(129, 25);
             this.warningText.TabIndex = 31;
@@ -152,7 +141,7 @@
             // metroLabel12
             // 
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(139, 59);
+            this.metroLabel12.Location = new System.Drawing.Point(234, 82);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(50, 20);
             this.metroLabel12.TabIndex = 25;
@@ -162,7 +151,7 @@
             // 
             this.phoneNumberTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.phoneNumberTextBox.Lines = new string[0];
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(196, 236);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(291, 259);
             this.phoneNumberTextBox.MaxLength = 32767;
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.PasswordChar = '\0';
@@ -176,7 +165,7 @@
             // metroButton1
             // 
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.metroButton1.Location = new System.Drawing.Point(411, 337);
+            this.metroButton1.Location = new System.Drawing.Point(506, 360);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(120, 30);
             this.metroButton1.TabIndex = 22;
@@ -188,7 +177,7 @@
             // 
             this.emailTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.emailTextBox.Lines = new string[0];
-            this.emailTextBox.Location = new System.Drawing.Point(196, 283);
+            this.emailTextBox.Location = new System.Drawing.Point(291, 306);
             this.emailTextBox.MaxLength = 32767;
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.PasswordChar = '\0';
@@ -202,7 +191,7 @@
             // metroLabel11
             // 
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(135, 100);
+            this.metroLabel11.Location = new System.Drawing.Point(230, 123);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(54, 20);
             this.metroLabel11.TabIndex = 26;
@@ -211,7 +200,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(79, 283);
+            this.metroLabel7.Location = new System.Drawing.Point(174, 306);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(110, 20);
             this.metroLabel7.TabIndex = 30;
@@ -221,7 +210,7 @@
             // 
             this.guestsTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.guestsTextBox.Lines = new string[0];
-            this.guestsTextBox.Location = new System.Drawing.Point(198, 100);
+            this.guestsTextBox.Location = new System.Drawing.Point(293, 123);
             this.guestsTextBox.MaxLength = 32767;
             this.guestsTextBox.Name = "guestsTextBox";
             this.guestsTextBox.PasswordChar = '\0';
@@ -235,7 +224,7 @@
             // 
             // metroDateTime
             // 
-            this.metroDateTime.Location = new System.Drawing.Point(196, 145);
+            this.metroDateTime.Location = new System.Drawing.Point(291, 168);
             this.metroDateTime.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime.Name = "metroDateTime";
             this.metroDateTime.Size = new System.Drawing.Size(200, 30);
@@ -245,7 +234,7 @@
             // metroLabel10
             // 
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(148, 145);
+            this.metroLabel10.Location = new System.Drawing.Point(243, 168);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(41, 20);
             this.metroLabel10.TabIndex = 27;
@@ -254,7 +243,7 @@
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(80, 236);
+            this.metroLabel8.Location = new System.Drawing.Point(175, 259);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(109, 20);
             this.metroLabel8.TabIndex = 29;
@@ -264,7 +253,7 @@
             // 
             this.nameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.nameTextBox.Lines = new string[0];
-            this.nameTextBox.Location = new System.Drawing.Point(198, 59);
+            this.nameTextBox.Location = new System.Drawing.Point(293, 82);
             this.nameTextBox.MaxLength = 32767;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
@@ -279,7 +268,7 @@
             // 
             this.tablesComboBox.FormattingEnabled = true;
             this.tablesComboBox.ItemHeight = 24;
-            this.tablesComboBox.Location = new System.Drawing.Point(196, 187);
+            this.tablesComboBox.Location = new System.Drawing.Point(291, 210);
             this.tablesComboBox.Name = "tablesComboBox";
             this.tablesComboBox.PromptText = "Available Tables";
             this.tablesComboBox.Size = new System.Drawing.Size(201, 30);
@@ -290,26 +279,22 @@
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(145, 187);
+            this.metroLabel9.Location = new System.Drawing.Point(240, 210);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(44, 20);
             this.metroLabel9.TabIndex = 28;
             this.metroLabel9.Text = "Table:";
             // 
-            // metroLabel2
+            // panel1
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.ForeColor = System.Drawing.Color.Red;
-            this.metroLabel2.Location = new System.Drawing.Point(86, 143);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(544, 25);
-            this.metroLabel2.TabIndex = 3;
-            this.metroLabel2.Text = "Please add a table in order to be able to assign reservations!";
-            this.metroLabel2.UseCustomBackColor = true;
-            this.metroLabel2.UseCustomForeColor = true;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.metroLabel1);
+            this.panel1.Controls.Add(this.metroButton2);
+            this.panel1.Controls.Add(this.metroLabel2);
+            this.panel1.Location = new System.Drawing.Point(0, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(692, 458);
+            this.panel1.TabIndex = 5;
             // 
             // metroLabel1
             // 
@@ -336,6 +321,21 @@
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.ForeColor = System.Drawing.Color.Red;
+            this.metroLabel2.Location = new System.Drawing.Point(86, 143);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(544, 25);
+            this.metroLabel2.TabIndex = 3;
+            this.metroLabel2.Text = "Please add a table in order to be able to assign reservations!";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
+            // 
             // metroTabPage2
             // 
             this.metroTabPage2.Controls.Add(this.metroGrid1);
@@ -353,6 +353,7 @@
             // 
             // metroGrid1
             // 
+            this.metroGrid1.AllowUserToAddRows = false;
             this.metroGrid1.AllowUserToResizeRows = false;
             this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -378,7 +379,9 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(0, 3);
+            this.metroGrid1.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.metroGrid1.Location = new System.Drawing.Point(3, 3);
+            this.metroGrid1.MultiSelect = false;
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -430,10 +433,10 @@
             this.Load += new System.EventHandler(this.ReservationsForm_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

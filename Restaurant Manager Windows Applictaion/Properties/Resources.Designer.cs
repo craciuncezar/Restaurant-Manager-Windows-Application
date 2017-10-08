@@ -73,9 +73,29 @@ namespace Restaurant_Manager_Windows_Applictaion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home_icon {
+            get {
+                object obj = ResourceManager.GetObject("home_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_icon {
             get {
                 object obj = ResourceManager.GetObject("menu_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menupicture {
+            get {
+                object obj = ResourceManager.GetObject("menupicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

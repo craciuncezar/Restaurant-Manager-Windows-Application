@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "BarChartUserControl";
+            this.VisibleChanged += new System.EventHandler(this.BarChartUserControl_VisibleChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.BarChartUserControl_Paint);
             this.ResumeLayout(false);
 

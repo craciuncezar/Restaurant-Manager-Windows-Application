@@ -26,8 +26,6 @@ D:\Programming\Visual Studio Projects\Restaurant Manager Windows Applictaion\Res
 D:\Programming\Visual Studio Projects\Restaurant Manager Windows Applictaion\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Forms.TablesForm.resources
 D:\Programming\Visual Studio Projects\Restaurant Manager Windows Applictaion\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Custom_User_Control.BarChartUserControl.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\Restaurant Manager Windows Applictaion.exe.config
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.exe
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.pdb
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\Restaurant Manager Windows Applictaion.exe
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\Restaurant Manager Windows Applictaion.pdb
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\EntityFramework.dll
@@ -41,14 +39,15 @@ D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager 
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\EntityFramework.xml
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\EntityFramework.SqlServer.xml
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\bin\Debug\System.Data.SQLite.xml
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.csprojResolveAssemblyReference.cache
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Custom_User_Control.BarChartUserControl.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.EmployeesForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Custom_User_Control.EmployeesUserControl.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Custom_User_Control.ReceiptUserControl.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Custom_User_Control.StatisticsUserControl.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Custom_User_Control.TablesUserControl.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.MainForm.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Forms.MenuForm.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Forms.ReceiptForm.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.ReservationsForm.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Forms.StatisticsForm.resources
-D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Application.Forms.TablesForm.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Forms.ReservationsUserControl.resources
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Forms.RestaurantMenuUserControl.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant_Manager_Windows_Applictaion.Properties.Resources.resources
 D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.csproj.GenerateResource.Cache
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.exe
+D:\Programming\GitHub\Restaurant Manager Windows Application\Restaurant Manager Windows Applictaion\obj\Debug\Restaurant Manager Windows Applictaion.pdb

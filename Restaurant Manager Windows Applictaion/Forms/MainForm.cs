@@ -1,9 +1,9 @@
 ﻿using Entities;
 using MetroFramework.Forms;
-using Restaurant_Manager_Windows_Application.Forms;
 using System;
 using System.Data.SQLite;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Restaurant_Manager_Windows_Application
 {
@@ -11,7 +11,7 @@ namespace Restaurant_Manager_Windows_Application
     {
 
         private static Restaurant restaurant = new Restaurant();
-        private static SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+        private Panel currentBtn;
 
         public static Restaurant Restaurant
         {
@@ -23,149 +23,36 @@ namespace Restaurant_Manager_Windows_Application
 
         public MainForm()
         {
+            if (File.Exists("database.db"))
+            {
+                readDatabase();
+            }
+            else
+            {
+                createDatabase();
+            }
             InitializeComponent();
         }
 
         #region Events
 
-        #region Tiles Click Event
-
-        //Events that hides the main form
-        //and display another form
-
-        private void reservationsTile_Click(object sender, EventArgs e)
-        {
-            ReservationsForm rf = new ReservationsForm(this);
-            this.Hide();
-            rf.Show();
-        }
-
-        private void employeesTile_Click(object sender, EventArgs e)
-        {
-            EmployeesForm ef = new EmployeesForm(this);
-            ef.Show();
-            this.Hide();
-        }
-
-        private void menuTile_Click(object sender, EventArgs e)
-        {
-            MenuForm mf = new MenuForm(this);
-            mf.Show();
-            this.Hide();
-        }
-
-        private void tablesTile_Click(object sender, EventArgs e)
-        {
-            TablesForm tf = new TablesForm(this);
-            tf.Show();
-            this.Hide();
-        }
-
-        private void statisticsTile_Click(object sender, EventArgs e)
-        {
-            StatisticsForm st = new StatisticsForm(this);
-            st.Show();
-            this.Hide();
-        }
-
-        private void receiptTile_Click(object sender, EventArgs e)
-        {
-            ReceiptForm rf = new ReceiptForm(this);
-            rf.Show();
-            this.Hide();
-        }
-
-        #endregion
-
-        #region Tiles Hover Color Change Event
-
-        //Mouse enter and leave events that changes the color of the tile from Default To Teal
-
-        private void ReservationsTile_MouseEnter(object sender, EventArgs e)
-        {
-            ReservationsTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void ReservationsTile_MouseLeave(object sender, EventArgs e)
-        {
-            ReservationsTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-        private void tablesTile_MouseEnter(object sender, EventArgs e)
-        {
-            tablesTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void tablesTile_MouseLeave(object sender, EventArgs e)
-        {
-            tablesTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-        private void employeesTile_MouseEnter(object sender, EventArgs e)
-        {
-            employeesTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void employeesTile_MouseLeave(object sender, EventArgs e)
-        {
-            employeesTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-        private void menuTile_MouseEnter(object sender, EventArgs e)
-        {
-            menuTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void menuTile_MouseLeave(object sender, EventArgs e)
-        {
-            menuTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-        private void statisticsTile_MouseEnter(object sender, EventArgs e)
-        {
-            statisticsTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void statisticsTile_MouseLeave(object sender, EventArgs e)
-        {
-            statisticsTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-        private void receiptTile_MouseEnter(object sender, EventArgs e)
-        {
-            receiptTile.Style = MetroFramework.MetroColorStyle.Teal;
-        }
-
-        private void receiptTile_MouseLeave(object sender, EventArgs e)
-        {
-            receiptTile.Style = MetroFramework.MetroColorStyle.Default;
-        }
-
-
-        #endregion
-
         #region Form Load Event
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (File.Exists("database.db"))
-            {
-                readDatabase(connection);
-            }
-            else
-            {
-                createDatabase(connection);
-            }
+            currentBtn = reservationsBtn;
         }
-        
+
         #endregion Form Load Event
 
         #endregion Events
 
-        #region Functions
+        #region DatabaseFunctions
 
-        void readDatabase(SQLiteConnection connection)
+        void readDatabase()
         {
+            SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+
             connection.Open();
 
             #region Employees
@@ -247,8 +134,10 @@ namespace Restaurant_Manager_Windows_Application
             connection.Close();
         }
 
-        void createDatabase(SQLiteConnection connection)
+        void createDatabase()
         {
+            SQLiteConnection connection = new SQLiteConnection("Data Source=database.db");
+
             try
             {
                 SQLiteConnection.CreateFile("database.db");
@@ -268,7 +157,109 @@ namespace Restaurant_Manager_Windows_Application
             }
         }
 
-        #endregion Functions
+        #endregion DatabaseFunctions
 
+        #region Buttons mouse hover color change 
+        #endregion
+
+
+        private void menuButtons_MouseEnter(object sender, EventArgs e)
+        {
+            //Control panel = sender as Control;
+            //panel.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+        }
+
+        private void menuButtons_MouseLeave(object sender, EventArgs e)
+        {
+            //Control panel = sender as Control;
+            //panel.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+        }
+
+        private void displayReservationsClick(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = true;
+            receiptUserControl1.Visible = false;
+            employeesUserControl1.Visible = false;
+            restaurantMenuUserControl1.Visible = false;
+            tablesUserControl1.Visible = false;
+            barChartUserControl1.Visible = false;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            reservationsBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = reservationsBtn;
+        }
+
+        private void receiptBtnClick(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = false;
+            receiptUserControl1.Visible = true;
+            employeesUserControl1.Visible = false;
+            restaurantMenuUserControl1.Visible = false;
+            tablesUserControl1.Visible = false;
+            barChartUserControl1.Visible = false;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            receiptBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = receiptBtn;
+        }
+
+        private void employeesBtnClick(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = false;
+            receiptUserControl1.Visible = false;
+            employeesUserControl1.Visible = true;
+            tablesUserControl1.Visible = false;
+            restaurantMenuUserControl1.Visible = false;
+            barChartUserControl1.Visible = false;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            employeesBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = employeesBtn;
+        }
+
+        private void tablesBtnClick(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = false;
+            receiptUserControl1.Visible = false;
+            employeesUserControl1.Visible = false;
+            tablesUserControl1.Visible = true;
+            restaurantMenuUserControl1.Visible = false;
+            barChartUserControl1.Visible = false;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            tablesBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = tablesBtn;
+
+        }
+
+        private void menuBtnClick(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = false;
+            receiptUserControl1.Visible = false;
+            employeesUserControl1.Visible = false;
+            tablesUserControl1.Visible = false;
+            restaurantMenuUserControl1.Visible = true;
+            barChartUserControl1.Visible = false;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            menuBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = menuBtn;
+
+        }
+
+        private void statisticsBtn_Click(object sender, EventArgs e)
+        {
+            reservationsUserControl1.Visible = false;
+            receiptUserControl1.Visible = false;
+            employeesUserControl1.Visible = false;
+            tablesUserControl1.Visible = false;
+            restaurantMenuUserControl1.Visible = false;
+            barChartUserControl1.Visible = true;
+
+            currentBtn.BackColor = System.Drawing.Color.FromArgb(3, 155, 229);
+            statisticsBtn.BackColor = System.Drawing.Color.FromArgb(59, 89, 152);
+            currentBtn = statisticsBtn;
+
+        }
     }
 }

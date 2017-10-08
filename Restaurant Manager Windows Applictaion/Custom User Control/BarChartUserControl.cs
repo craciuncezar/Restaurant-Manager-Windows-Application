@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entities;
 
 namespace Restaurant_Manager_Windows_Application.Custom_User_Control
 {
     public partial class BarChartUserControl : UserControl
     {
-        private Restaurant restaurant = MainForm.Restaurant;
         private BarChartCategory[] _data;
+
         private BarChartCategory[] Data
         {
             get { return _data; }
@@ -29,6 +23,7 @@ namespace Restaurant_Manager_Windows_Application.Custom_User_Control
                 Invalidate();
             }
         }
+
         public BarChartUserControl()
         {
             InitializeComponent();
@@ -37,14 +32,28 @@ namespace Restaurant_Manager_Windows_Application.Custom_User_Control
 
             Data = new[]
             {
-                new BarChartCategory("Reservations",restaurant.Reservations.Count,Color.Red),
-                new BarChartCategory("Tables",restaurant.Tables.Count,Color.Blue),
-                new BarChartCategory("Employee",restaurant.Employee.Count,Color.Brown),
-                new BarChartCategory("Menu items",restaurant.Menu.Count,Color.Yellow)
+                new BarChartCategory("Reservations",MainForm.Restaurant.Reservations.Count,Color.Red),
+                new BarChartCategory("Tables",MainForm.Restaurant.Tables.Count,Color.Blue),
+                new BarChartCategory("Employee",MainForm.Restaurant.Employee.Count,Color.Brown),
+                new BarChartCategory("Menu items",MainForm.Restaurant.Menu.Count,Color.Yellow)
+
+            };
+
+        }
+
+        private void BarChartUserControl_VisibleChanged(object sender, EventArgs e)
+        {
+            ResizeRedraw = true;
+
+            Data = new[]
+            {
+                new BarChartCategory("Reservations",MainForm.Restaurant.Reservations.Count,Color.Red),
+                new BarChartCategory("Tables",MainForm.Restaurant.Tables.Count,Color.Blue),
+                new BarChartCategory("Employee",MainForm.Restaurant.Employee.Count,Color.Brown),
+                new BarChartCategory("Menu items",MainForm.Restaurant.Menu.Count,Color.Yellow)
 
             };
         }
-
 
         private void BarChartUserControl_Paint(object sender, PaintEventArgs e)
         {
